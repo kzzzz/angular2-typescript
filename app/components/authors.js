@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../services/authors.service'], function(exports_1, context_1) {
+System.register(['angular2/core', '../services/authors.service', './favorite'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../services/authors.service'], function(expor
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, authors_service_1;
+    var core_1, authors_service_1, favorite_1;
     var Authors;
     return {
         setters:[
@@ -19,18 +19,22 @@ System.register(['angular2/core', '../services/authors.service'], function(expor
             },
             function (authors_service_1_1) {
                 authors_service_1 = authors_service_1_1;
+            },
+            function (favorite_1_1) {
+                favorite_1 = favorite_1_1;
             }],
         execute: function() {
             Authors = (function () {
                 function Authors(authorsService) {
-                    this.title = 'Authors title';
+                    this.title = 'Authors';
                     this.authors = authorsService.getAuthors();
                 }
                 Authors = __decorate([
                     core_1.Component({
                         selector: "authors",
+                        directives: [favorite_1.Favorite],
                         providers: [authors_service_1.AuthorsService],
-                        template: "\n    <div>\n        <h2>{{title}} </h2>\n        <ul>\n            <li *ngFor=\"#author of authors\">\n            {{author}}\n            </li>\n        </ul>\n    </div>"
+                        template: "\n    <div>\n        <h2>{{title}}</h2>\n        <ul>\n            <li *ngFor=\"#author of authors\">\n            <favorite [isFavorite]=\"author.isFavorite\"></favorite>\n            {{author.name}}\n            </li>\n        </ul>\n    </div>"
                     }), 
                     __metadata('design:paramtypes', [authors_service_1.AuthorsService])
                 ], Authors);

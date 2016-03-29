@@ -9,7 +9,12 @@ System.register([], function(exports_1, context_1) {
                 function AuthorsService() {
                 }
                 AuthorsService.prototype.getAuthors = function () {
-                    return ['Jan', 'Peter', 'Zhiping'];
+                    return [
+                        { name: 'Annemie Heymans', isFavorite: true },
+                        { name: 'Remco Campert', isFavorite: false },
+                        { name: 'Antoon Coolen', isFavorite: false },
+                        { name: 'Arnon Grunberg', isFavorite: true }
+                    ];
                 };
                 return AuthorsService;
             }());

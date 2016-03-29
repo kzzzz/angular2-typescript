@@ -1,4 +1,4 @@
-System.register(['angular2/core', "./courses", './authors', '../directives/auto-grow'], function(exports_1, context_1) {
+System.register(['angular2/core', "./courses", './authors', './favorite', '../directives/auto-grow'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', "./courses", './authors', '../directives/auto-
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_1, authors_1, auto_grow_1;
+    var core_1, courses_1, authors_1, favorite_1, auto_grow_1;
     var AppComponent;
     return {
         setters:[
@@ -23,6 +23,9 @@ System.register(['angular2/core', "./courses", './authors', '../directives/auto-
             function (authors_1_1) {
                 authors_1 = authors_1_1;
             },
+            function (favorite_1_1) {
+                favorite_1 = favorite_1_1;
+            },
             function (auto_grow_1_1) {
                 auto_grow_1 = auto_grow_1_1;
             }],
@@ -34,8 +37,8 @@ System.register(['angular2/core', "./courses", './authors', '../directives/auto-
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        directives: [courses_1.Courses, authors_1.Authors, auto_grow_1.AutoGrow],
-                        template: "\n    <div>\n        <h1>{{title}}</h1>\n        <input type=\"text\" autoGrow />\n        <courses></courses>\n        <authors></authors>\n    </div>"
+                        directives: [courses_1.Courses, authors_1.Authors, favorite_1.Favorite, auto_grow_1.AutoGrow],
+                        template: "\n    <div>\n        <h1>{{title}}</h1>\n        <input type=\"text\" [(ngModel)]=\"title\" autoGrow />\n        <courses></courses>\n        <authors></authors>\n        <favorite></favorite>\n    </div>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

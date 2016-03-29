@@ -1,5 +1,10 @@
 export class AuthorsService {
-    getAuthors():string[] {
-        return ['Jan', 'Peter', 'Zhiping'];
+    getAuthors():Object[] {
+        return [
+            {name: 'Annemie Heymans', isFavorite: true},
+            {name: 'Remco Campert', isFavorite: false},
+            {name: 'Antoon Coolen', isFavorite: false},
+            {name: 'Arnon Grunberg', isFavorite: true}
+        ];
     }
 }
