@@ -11,17 +11,23 @@ import {Favorite} from './favorite';
         <h2>{{title}}</h2>
         <ul>
             <li *ngFor="#author of authors">
-            <favorite [isFavorite]="author.isFavorite"></favorite>
-            {{author.name}}
+            <favorite [isFavorite]="author.isFavorite" (change)="onFavoriteChange($event)" >
+            </favorite>
+                {{author.name}}
             </li>
         </ul>
     </div>`
 })
 
-export class Authors{
-    constructor(authorsService: AuthorsService){
+export class Authors {
+    constructor(authorsService:AuthorsService) {
         this.authors = authorsService.getAuthors();
     }
+
     title = 'Authors';
     authors;
+
+    onFavoriteChange($event) {
+        console.log($event);
+    }
 }

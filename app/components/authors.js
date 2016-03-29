@@ -29,12 +29,15 @@ System.register(['angular2/core', '../services/authors.service', './favorite'], 
                     this.title = 'Authors';
                     this.authors = authorsService.getAuthors();
                 }
+                Authors.prototype.onFavoriteChange = function ($event) {
+                    console.log($event);
+                };
                 Authors = __decorate([
                     core_1.Component({
                         selector: "authors",
                         directives: [favorite_1.Favorite],
                         providers: [authors_service_1.AuthorsService],
-                        template: "\n    <div>\n        <h2>{{title}}</h2>\n        <ul>\n            <li *ngFor=\"#author of authors\">\n            <favorite [isFavorite]=\"author.isFavorite\"></favorite>\n            {{author.name}}\n            </li>\n        </ul>\n    </div>"
+                        template: "\n    <div>\n        <h2>{{title}}</h2>\n        <ul>\n            <li *ngFor=\"#author of authors\">\n            <favorite [isFavorite]=\"author.isFavorite\" (change)=\"onFavoriteChange($event)\" >\n            </favorite>\n                {{author.name}}\n            </li>\n        </ul>\n    </div>"
                     }), 
                     __metadata('design:paramtypes', [authors_service_1.AuthorsService])
                 ], Authors);
